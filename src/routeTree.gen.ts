@@ -9,8 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SimulationRouteImport } from './routes/simulation'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ScenariosRouteImport } from './routes/scenarios'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ObservatoryRouteImport } from './routes/observatory'
+import { Route as MissionsRouteImport } from './routes/missions'
+import { Route as MapsRouteImport } from './routes/maps'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as CouncilRouteImport } from './routes/council'
+import { Route as CommunitiesRouteImport } from './routes/communities'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SimulationRoute = SimulationRouteImport.update({
+  id: '/simulation',
+  path: '/simulation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScenariosRoute = ScenariosRouteImport.update({
+  id: '/scenarios',
+  path: '/scenarios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObservatoryRoute = ObservatoryRouteImport.update({
+  id: '/observatory',
+  path: '/observatory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MissionsRoute = MissionsRouteImport.update({
+  id: '/missions',
+  path: '/missions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapsRoute = MapsRouteImport.update({
+  id: '/maps',
+  path: '/maps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CouncilRoute = CouncilRouteImport.update({
+  id: '/council',
+  path: '/council',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunitiesRoute = CommunitiesRouteImport.update({
+  id: '/communities',
+  path: '/communities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +79,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/communities': typeof CommunitiesRoute
+  '/council': typeof CouncilRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/maps': typeof MapsRoute
+  '/missions': typeof MissionsRoute
+  '/observatory': typeof ObservatoryRoute
+  '/reports': typeof ReportsRoute
+  '/scenarios': typeof ScenariosRoute
+  '/settings': typeof SettingsRoute
+  '/simulation': typeof SimulationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/communities': typeof CommunitiesRoute
+  '/council': typeof CouncilRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/maps': typeof MapsRoute
+  '/missions': typeof MissionsRoute
+  '/observatory': typeof ObservatoryRoute
+  '/reports': typeof ReportsRoute
+  '/scenarios': typeof ScenariosRoute
+  '/settings': typeof SettingsRoute
+  '/simulation': typeof SimulationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/communities': typeof CommunitiesRoute
+  '/council': typeof CouncilRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/maps': typeof MapsRoute
+  '/missions': typeof MissionsRoute
+  '/observatory': typeof ObservatoryRoute
+  '/reports': typeof ReportsRoute
+  '/scenarios': typeof ScenariosRoute
+  '/settings': typeof SettingsRoute
+  '/simulation': typeof SimulationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/communities'
+    | '/council'
+    | '/knowledge'
+    | '/maps'
+    | '/missions'
+    | '/observatory'
+    | '/reports'
+    | '/scenarios'
+    | '/settings'
+    | '/simulation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/communities'
+    | '/council'
+    | '/knowledge'
+    | '/maps'
+    | '/missions'
+    | '/observatory'
+    | '/reports'
+    | '/scenarios'
+    | '/settings'
+    | '/simulation'
+  id:
+    | '__root__'
+    | '/'
+    | '/communities'
+    | '/council'
+    | '/knowledge'
+    | '/maps'
+    | '/missions'
+    | '/observatory'
+    | '/reports'
+    | '/scenarios'
+    | '/settings'
+    | '/simulation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommunitiesRoute: typeof CommunitiesRoute
+  CouncilRoute: typeof CouncilRoute
+  KnowledgeRoute: typeof KnowledgeRoute
+  MapsRoute: typeof MapsRoute
+  MissionsRoute: typeof MissionsRoute
+  ObservatoryRoute: typeof ObservatoryRoute
+  ReportsRoute: typeof ReportsRoute
+  ScenariosRoute: typeof ScenariosRoute
+  SettingsRoute: typeof SettingsRoute
+  SimulationRoute: typeof SimulationRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/simulation': {
+      id: '/simulation'
+      path: '/simulation'
+      fullPath: '/simulation'
+      preLoaderRoute: typeof SimulationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scenarios': {
+      id: '/scenarios'
+      path: '/scenarios'
+      fullPath: '/scenarios'
+      preLoaderRoute: typeof ScenariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/observatory': {
+      id: '/observatory'
+      path: '/observatory'
+      fullPath: '/observatory'
+      preLoaderRoute: typeof ObservatoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/missions': {
+      id: '/missions'
+      path: '/missions'
+      fullPath: '/missions'
+      preLoaderRoute: typeof MissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/maps': {
+      id: '/maps'
+      path: '/maps'
+      fullPath: '/maps'
+      preLoaderRoute: typeof MapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/council': {
+      id: '/council'
+      path: '/council'
+      fullPath: '/council'
+      preLoaderRoute: typeof CouncilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/communities': {
+      id: '/communities'
+      path: '/communities'
+      fullPath: '/communities'
+      preLoaderRoute: typeof CommunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +257,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommunitiesRoute: CommunitiesRoute,
+  CouncilRoute: CouncilRoute,
+  KnowledgeRoute: KnowledgeRoute,
+  MapsRoute: MapsRoute,
+  MissionsRoute: MissionsRoute,
+  ObservatoryRoute: ObservatoryRoute,
+  ReportsRoute: ReportsRoute,
+  ScenariosRoute: ScenariosRoute,
+  SettingsRoute: SettingsRoute,
+  SimulationRoute: SimulationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
